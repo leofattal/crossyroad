@@ -104,20 +104,20 @@ export class GridManager {
     // Regenerate visible chunks if row types changed
     for (let i = currentChunk - 1; i <= currentChunk + 2; i++) {
       if (this.visibleChunks.has(i)) {
-        const chunk = this.visibleChunks.get(i)!;
+        const existingChunk = this.visibleChunks.get(i)!;
         // Clear and regenerate
-        chunk.clear();
+        existingChunk.clear();
         const startZ = i * this.chunkSize;
         for (let z = 0; z < this.chunkSize; z++) {
           const rowZ = startZ + z;
-          this.createRow(chunk, rowZ);
+          this.createRow(existingChunk, rowZ);
         }
       }
     }
 
     // Remove chunks far behind
     const chunksToRemove: number[] = [];
-    this.visibleChunks.forEach((chunk, index) => {
+    this.visibleChunks.forEach((_chunk, index) => {
       if (index < currentChunk - 2) {
         chunksToRemove.push(index);
       }

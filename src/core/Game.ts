@@ -16,7 +16,6 @@ export class Game {
   private scoreManager: ScoreManager;
   private isRunning: boolean = false;
   private lastTime: number = 0;
-  private onLogVelocity: number = 0;
   private gameApp: any; // Reference to the main app
 
   constructor(gameApp?: any) {
@@ -116,7 +115,7 @@ export class Game {
     this.inputManager.on('pause', () => this.togglePause());
   }
 
-  private movePlayer(dx: number, dz: number): void {
+  private movePlayer(_dx: number, dz: number): void {
     if (!this.isRunning || this.player.isJumping()) return;
 
     // Player stays at x=0, only moves forward

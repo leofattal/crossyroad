@@ -147,7 +147,6 @@ export class Player {
       } else {
         // Smooth jump animation using easing
         const t = this.jumpProgress;
-        const easeT = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; // Ease in-out quad
 
         // Linear movement in X and Z
         this.mesh.position.x = THREE.MathUtils.lerp(

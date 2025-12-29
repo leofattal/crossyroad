@@ -28,14 +28,12 @@ interface Vehicle {
 
 export class ObstacleManager {
   private scene: THREE.Scene;
-  private gridManager: GridManager;
   private rows: Map<number, RowData> = new Map();
   private vehicles: Vehicle[] = [];
   private lastGeneratedRow: number = 0;
 
-  constructor(scene: THREE.Scene, gridManager: GridManager) {
+  constructor(scene: THREE.Scene, _gridManager: GridManager) {
     this.scene = scene;
-    this.gridManager = gridManager;
 
     // Generate initial rows
     for (let z = 0; z < 30; z++) {
@@ -207,7 +205,7 @@ export class ObstacleManager {
     const minRow = Math.floor(playerZ) - 20;
     const rowsToRemove: number[] = [];
 
-    this.rows.forEach((row, z) => {
+    this.rows.forEach((_row, z) => {
       if (z < minRow) {
         rowsToRemove.push(z);
       }
@@ -270,7 +268,7 @@ export class ObstacleManager {
     return row ? row.type : RowType.GRASS;
   }
 
-  public isOnLog(position: GridPosition): { onLog: boolean; velocity: number } {
+  public isOnLog(_position: GridPosition): { onLog: boolean; velocity: number } {
     return { onLog: false, velocity: 0 };
   }
 }
