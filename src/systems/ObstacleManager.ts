@@ -186,9 +186,14 @@ export class ObstacleManager {
       group.add(wheel);
     });
 
-    // Rotate based on direction
-    if (direction < 0) {
-      group.rotation.y = Math.PI;
+    // Rotate to face perpendicular to the road (traveling left/right)
+    // 90 degrees rotation so cars move sideways across the grid
+    if (direction > 0) {
+      // Moving right
+      group.rotation.y = Math.PI / 2;
+    } else {
+      // Moving left
+      group.rotation.y = -Math.PI / 2;
     }
 
     return group;
