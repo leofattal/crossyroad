@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="An endless arcade game inspired by Crossy Road" />
+    <title>Endless Runner</title>
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body>
+    <!-- Game HUD -->
+    <div id="hud">
+      <div class="hud-top-left">
+        <div id="score" class="hud-score">0</div>
+        <div id="distance" class="hud-distance">0m</div>
+      </div>
+    </div>
+
+    <!-- Main Menu (hidden by default during gameplay) -->
+    <div id="main-menu" class="menu hidden">
+      <h1 class="game-title">Endless Runner</h1>
+      <button id="play-button" class="btn-primary">Play</button>
+      <button id="settings-button" class="btn-secondary">Settings</button>
+    </div>
+
+    <!-- Death Screen -->
+    <div id="death-screen" class="menu hidden">
+      <h2>Game Over</h2>
+      <div class="final-stats">
+        <p class="final-score">Score: <span id="final-score">0</span></p>
+        <p class="final-distance">Distance: <span id="final-distance">0</span>m</p>
+      </div>
+      <button id="retry-button" class="btn-primary">Retry</button>
+      <button id="menu-button" class="btn-secondary">Main Menu</button>
+    </div>
+
+    <!-- Pause Menu -->
+    <div id="pause-menu" class="menu hidden">
+      <h2>Paused</h2>
+      <button id="resume-button" class="btn-primary">Resume</button>
+      <button id="restart-button" class="btn-secondary">Restart</button>
+      <button id="pause-menu-button" class="btn-secondary">Main Menu</button>
+    </div>
+
+    <!-- Controls hint (fades after a few runs) -->
+    <div id="controls-hint" class="controls-hint">
+      <p class="desktop-controls">Click or press SPACE to jump forward</p>
+      <p class="mobile-controls">Tap anywhere to jump forward</p>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
